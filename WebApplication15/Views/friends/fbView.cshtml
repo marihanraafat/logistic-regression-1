@@ -1,0 +1,741 @@
+﻿@using WebApplication15.Models
+@model WebApplication15.Models.friends
+
+@{
+    ViewBag.Title = "fbView";
+
+}
+
+
+
+
+<script src="https://kit.fontawesome.com/e29bfcab6b.js" crossorigin="anonymous"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial;
+        background-color: #F1F1F1;
+    }
+
+    img {
+        cursor: pointer;
+    }
+
+
+
+    .profile-content {
+        width: 77%;
+        height: 100vh;
+        margin: auto;
+        background-color: #F1F1F1;
+    }
+
+    .header-fb-design {
+        width: 100%;
+    }
+
+    .cover-img-div {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+        .cover-img-div img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+            border-radius: 0px 0px 10px 10px;
+        }
+
+    .profile-fb-img {
+        position: absolute;
+        content: '';
+        left: 50px;
+        bottom: -110px;
+        width: 130px;
+        height: 130px;
+        background-color: #333;
+        border: 3px solid #fff;
+        border-radius: 50%;
+    }
+
+        .profile-fb-img img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+        }
+
+        .profile-fb-img h1 {
+            position: absolute;
+            content: '';
+            top: 90px;
+            right: 0;
+            left: 150px;
+            font-size: 26px;
+            color: #000000;
+            font-weight: 600;
+            transform: translateY(-50px);
+            display: inline-flex;
+            width: 200%;
+        }
+
+    .navbar-design {
+        background-color: #fff;
+    }
+
+        .navbar-design ul {
+            padding: 120px 0px 10px 55px;
+            margin-bottom: 0;
+        }
+
+            .navbar-design ul li {
+                display: inline-block;
+                padding: 5px 5px;
+                color: #808080;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: .3s;
+            }
+
+                .navbar-design ul li:hover {
+                    color: #3A5898;
+                    border-bottom: 2px solid Highlight;
+                }
+
+    .content-section {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 3fr 5fr;
+        grid-column-gap: 5px;
+    }
+
+    .box-design {
+        background-color: #fff;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin: 16px 0px 0px 30px;
+        box-shadow: 0px 0px 2px #3335;
+        width: 350px;
+    }
+
+        .box-design span {
+            font-family: 20px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .box-design ul {
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+            .box-design ul li {
+                font-family: 16px;
+                color: black;
+                background-color: lightgray;
+                list-style: none;
+                margin: 22px;
+                padding: 7px;
+                border-radius: 6px;
+                text-align: center;
+                cursor: pointer
+            }
+
+                .box-design ul li:hover {
+                    background-color: darkgrey;
+                }
+
+        .box-design nav {
+            margin: -23px 0px 0px 210px;
+            color: Highlight;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+            .box-design nav:hover {
+                background-color: #E0E0E0;
+            }
+
+    .image-photos {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 5px;
+        margin-top: 15px;
+    }
+
+        .image-photos div {
+            width: 100%;
+            height: 110px;
+            background-color: #333;
+        }
+
+    .image-friends {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 5px;
+        margin-top: 15px;
+    }
+
+        .image-friends div {
+            width: 100%;
+            height: 110px;
+            background-color: #333;
+        }
+
+            .image-friends div img, .image-photos div {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+    .box-design form label {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        padding: 5px 0px 5px 0px;
+        border-radius: 3px;
+    }
+
+        .box-design form label:hover {
+            background-color: #E0E0E0;
+        }
+
+    .hade-icon {
+        padding: 5px 5px;
+        border-bottom: 1px solid #3332;
+    }
+
+    .box-designing {
+        background-color: #fff;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin: 16px 0px 0px 53px;
+        box-shadow: 0px 0px 2px #3335;
+        width: 420px;
+    }
+
+        .box-designing ul {
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+            .box-designing ul li {
+                font: 10;
+                color: black;
+                list-style: none;
+                margin: 0px 7px 0px 7px;
+                display: inline-block;
+                cursor: pointer;
+                padding: 10px;
+                border-radius: 6px;
+            }
+
+                .box-designing ul li:hover {
+                    background-color: #E0E0E0;
+                }
+
+        .box-designing div textarea {
+            width: 100%;
+            padding: 5px 10px;
+            border: 1px solid #3335;
+            resize: none;
+            outline: none;
+            font-size: 16px;
+            font-family: Arial;
+            box-sizing: border-box;
+            height: 40px;
+            border-radius: 26px;
+        }
+
+    .post-text {
+        display: grid;
+        grid-template-columns: 1fr 11fr;
+        grid-column-gap: 5px;
+        padding: 5px 0px;
+    }
+
+    .profile-img {
+        width: 40px;
+        height: 40px;
+        background-color: #333;
+        border-radius: 50%;
+    }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+    .post-header {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 11fr;
+        grid-column-gap: 5px;
+    }
+
+    .post-name-info h2 {
+        font-size: 14px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .post-name-info p {
+        font-size: 13px;
+        color: #3336;
+        font-weight: 600;
+    }
+
+    .post-name-info i {
+        content: '';
+        transform: translateY(-85%);
+        width: 15px;
+        height: 15px;
+        left: 990px;
+        position: absolute;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+        .post-name-info i :active {
+            background-color: #3335;
+        }
+
+    .post-img-txt {
+        width: 100%;
+    }
+
+        .post-img-txt p {
+            font-size: 18px;
+            clear: #000;
+            margin-top: 10px;
+            padding: 10px 10px;
+        }
+
+        .post-img-txt img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+    .like-comment-site {
+        width: 100%;
+        border-bottom: 1px solid #3332;
+    }
+
+        .like-comment-site button {
+            padding: 8px 13px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            color: #333;
+            cursor: pointer;
+            background-color: #fff0;
+            margin-right: 10px;
+        }
+
+            .like-comment-site button:active {
+                background-color: #3332;
+            }
+
+    .comment-site {
+        display: grid;
+        grid-template-columns: 1fr 11fr;
+        grid-column-gap: 5px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .minipi {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .comment-div textarea {
+        width: 100%;
+        padding: 5px 10px;
+        border: 1px solid #3335;
+        resize: none;
+        outline: none;
+        font-size: 16px;
+        font-family: Arial;
+        box-sizing: border-box;
+        height: 40px;
+        border-radius: 26px;
+    }
+
+    .comment-div {
+        position: relative;
+    }
+
+        .comment-div ul {
+            position: absolute;
+            content: '';
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0;
+            margin-bottom: 0;
+            text-align: right;
+            margin-top: 0;
+        }
+
+            .comment-div ul li {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 22px;
+                margin-left: 8px;
+            }
+
+                .comment-div ul li i {
+                    text-align: center;
+                    line-height: 10px;
+                }
+
+                .comment-div ul li :active {
+                    background-color: #3335;
+                }
+
+    button {
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        color: #333;
+        cursor: pointer;
+        background-color: #fff0;
+    }
+
+        button:active {
+            background-color: #3335;
+        }
+.sidebar 
+{
+margin:0;
+padding:0;
+list-style:none;
+text-decoration:none;
+position:fixed;
+left:-193px;
+width:193px;
+height:100%;
+background:#042331;
+transition:all .5s ease;
+
+}
+.sidebar header
+{
+    font-size:22px;
+    color:white;
+    text-align:center;
+    line-height:70px;
+    background:#063146;
+    user-select:none;
+
+}
+.sidebar ul li{
+    display:block;
+    height:100%;
+    width:100%;
+    line-height:40px;
+    font-size:20px;
+    color:white;
+    padding-left:10px;
+    list-style:none;
+    box-sizing:border-box;
+
+}
+
+    #check {
+display:none;
+    }
+
+    label #cancel, label #btn {
+        position: absolute;
+        cursor: pointer;
+        background:#042331;
+        border-radius:3px;
+    }
+    label #cancel {
+        z-index: 1111;
+        left: -160px;
+        top: 77px;
+        font-size:20px;
+        color:#0a5275;
+        padding:1px 6px;
+    }
+        label #btn {
+            left: 37px;
+            top: 80px;
+            font-size: 35px;
+            color: white;
+            padding:3px 6px;
+        }
+    #check:checked ~ .sidebar {
+        position: absolute;
+        left: 0;
+    }
+
+#check:checked ~ label #cancel {
+    position: absolute;
+    left: 160px;
+}
+.sidebar ul li nav {
+    font-size:16px;
+    color:gray;
+    padding-left:17px;
+    }
+
+.mail {
+   
+    font-size: 12px;
+    color: gray;
+
+}
+
+
+
+
+
+
+
+</style>
+
+
+<body>
+      <input type="checkbox" id="check" >
+        <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
+        <div class="sidebar">
+
+            <header> facebook</header>
+            <ul>
+                <li>Country <nav>@ViewBag.country</nav> </li>
+                 
+                <li>City  <nav>@ViewBag.city</nav></li>
+                <li>Email <div class="mail">@ViewBag.email</div></li>
+                <li>Mobile<nav >@ViewBag.mobile</nav></li>
+            </ul>
+        </div>
+    
+
+
+
+
+    <div class="white-header">
+
+        <section class="profile-content">
+            <header class="header-fb-design">
+                <section class="cover-img-div">
+                    <img src=@ViewBag.imagePpath />
+
+                    <div class="profile-fb-img">
+                        <img src=@ViewBag.imagePpath2 />
+                        <h1> @ViewBag.getName </h1>
+                    </div>
+                </section>
+                <nav class="navbar-design">
+                    <ul>
+                        <hr />
+                        <li>Posta</li>
+                        <li>About</li>
+                        <li>Frinds</li>
+                        <li>Photos</li>
+                        <li>Videos</li>
+                        <li>Check-ins</li>
+                        <li>More <i class="fas fa-caret-down"></i></li>
+                    </ul>
+
+                </nav>
+
+            </header>
+
+            <section class="content-section">
+                <div class="left-fb-div">
+                    <div class="box-design">
+                        <span>
+                            Intro
+
+                        </span>
+                        <ul>
+                            <li>Add Bio</li>
+                            <li>Edit details</li>
+                            <li>Add Hobbies</li>
+                            <li>Add Featured</li>
+                        </ul>
+                    </div>
+                    <div class="box-design">
+                        <span>Photos</span>
+                        <nav>See All Photos</nav>
+                    </div>
+
+                    <div class="box-design">
+                        <span>Friends <nav>see all friends</nav></span>
+
+                        <div class="image-friends">
+
+                            <div> <img src="\img\images\nour-profile.jpg" /></div>
+                            <div><img src="\img\images\osama-profile.jpg" /></div>
+                            <div><img src="\img\images\mayada-profile.jpg" /></div>
+
+
+                        </div>
+
+                        <button id="nourBtn" data-url="@Url.Action("fbViewPost","friends")">Nourhan Reda</button>
+                        <button id="osamaBtn" style="margin:0px 10px 0px 10px" data-url="@Url.Action("fbViewPost_a","friends")">Osama Emam</button>
+                        <button id="mayadaBtn" data-url="@Url.Action("fbViewPost_m","friends")">Mayada Adel</button>
+
+                    </div>
+
+
+
+
+                </div>
+                <div class="right-fb-div">
+
+                    <div class="box-designing">
+                        <div class="post-text">
+                            <div class="profile-img">
+                                <img src=@ViewBag.imagePpath2 />
+                            </div>
+                            <div> <textarea placeholder="what is in your mind?"></textarea></div>
+                            <div></div>
+                        </div>
+
+                        <div class="hade-icon">
+                            <ul>
+                                <li><i class="fa-solid fa-video"></i> Live Video </li>
+                                <li><i class="fa-solid fa-photo-film"> </i> Photo/Video</li>
+                                <li><i class="fa-solid fa-flag"> </i> Live event</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="box-designing">
+                        <div class="post-header">
+                            <div class="profile-img">
+                                <img src=@ViewBag.imagePpath2 />
+                            </div>
+                            <div class="post-name-info">
+                                <h2>Marihan Raafat</h2>
+                                <p>
+                                    <span> 19 April 2022</span>
+
+                                </p>
+                                <i class="fa-solid fa-ellipsis-vertical "></i>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="post-img-txt">
+                            <p>
+                                NASA space apps global nominee for global competition
+                            </p>
+                            <img src="\img\images\0.jpg" />
+                        </div>
+                        <div class="like-comment-site">
+
+                            <button>
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </button>
+                            <button>
+                                <i class="fas fa-comment-alt"></i>
+                                <span>Comments</span>
+                            </button>
+                            <button>
+                                <i class="fas fa-share"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        <div class="comment-site">
+                            <div>
+                                <div class="profile-img minipi">
+                                    <img src=@ViewBag.imagePpath2 />
+                                </div>
+                            </div>
+                            <div class="comment-div">
+                                <textarea placeholder="write a comment..."></textarea>
+                                <ul>
+                                    <li><i class="fas fa-camera"></i></li>
+                                    <li><i class="far fa-smile-beam"></i></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+        </section>
+
+    </div>
+
+
+
+
+
+</body>
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $("#nourBtn").click(function (e) {
+                e.preventDefault();
+                var url = $(this).data("url");
+                window.open(url, "_self");
+            });
+            $("#mayadaBtn").click(function (e) {
+                e.preventDefault();
+                var url = $(this).data("url");
+                window.open(url, "_self");
+            });
+
+            $("#osamaBtn").click(function (e) {
+                e.preventDefault();
+                var url = $(this).data("url");
+                window.open(url, "_self");
+            });
+
+
+        })
+
+
+
+
+    </script>
+
+}
+
