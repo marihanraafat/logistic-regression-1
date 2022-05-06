@@ -1,5 +1,6 @@
 ﻿@using WebApplication15.Models
-@model WebApplication15.Models.friends
+@model WebApplication15.ViewModels.posts_friendsViewModels
+
 
 @{
     ViewBag.Title = "fbView";
@@ -426,117 +427,116 @@
         button:active {
             background-color: #3335;
         }
-.sidebar 
-{
-margin:0;
-padding:0;
-list-style:none;
-text-decoration:none;
-position:fixed;
-left:-193px;
-width:193px;
-height:100%;
-background:#042331;
-transition:all .5s ease;
 
-}
-.sidebar header
-{
-    font-size:22px;
-    color:white;
-    text-align:center;
-    line-height:70px;
-    background:#063146;
-    user-select:none;
+    .sidebar {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        position: fixed;
+        left: -193px;
+        width: 193px;
+        height: 100%;
+        background: #042331;
+        transition: all .5s ease;
+    }
 
-}
-.sidebar ul li{
-    display:block;
-    height:100%;
-    width:100%;
-    line-height:40px;
-    font-size:20px;
-    color:white;
-    padding-left:10px;
-    list-style:none;
-    box-sizing:border-box;
+        .sidebar header {
+            font-size: 22px;
+            color: white;
+            text-align: center;
+            line-height: 70px;
+            background: #063146;
+            user-select: none;
+        }
 
-}
+        .sidebar ul li {
+            display: block;
+            height: 100%;
+            width: 100%;
+            line-height: 40px;
+            font-size: 20px;
+            color: white;
+            padding-left: 10px;
+            list-style: none;
+            box-sizing: border-box;
+        }
 
     #check {
-display:none;
+        display: none;
     }
 
     label #cancel, label #btn {
         position: absolute;
         cursor: pointer;
-        background:#042331;
-        border-radius:3px;
+        background: #042331;
+        border-radius: 3px;
     }
+
     label #cancel {
         z-index: 1111;
         left: -160px;
         top: 77px;
-        font-size:20px;
-        color:#0a5275;
-        padding:1px 6px;
+        font-size: 20px;
+        color: #0a5275;
+        padding: 1px 6px;
     }
-        label #btn {
-            left: 37px;
-            top: 80px;
-            font-size: 35px;
-            color: white;
-            padding:3px 6px;
-        }
+
+    label #btn {
+        left: 37px;
+        top: 80px;
+        font-size: 35px;
+        color: white;
+        padding: 3px 6px;
+    }
+
     #check:checked ~ .sidebar {
         position: absolute;
         left: 0;
     }
 
-#check:checked ~ label #cancel {
-    position: absolute;
-    left: 160px;
-}
-.sidebar ul li nav {
-    font-size:16px;
-    color:gray;
-    padding-left:17px;
+    #check:checked ~ label #cancel {
+        position: absolute;
+        left: 160px;
     }
 
-.mail {
-   
-    font-size: 12px;
-    color: gray;
+    .sidebar ul li nav {
+        font-size: 16px;
+        color: gray;
+        padding-left: 17px;
+    }
 
-}
+    .mail {
+        font-size: 12px;
+        color: gray;
+    }
+    .writtenPost {
+        font-size: 26px;
+        padding-top: 30px;
 
-
-
-
-
-
-
+    }
 </style>
 
 
 <body>
-      <input type="checkbox" id="check" >
-        <label for="check">
-            <i class="fas fa-bars" id="btn"></i>
-            <i class="fas fa-times" id="cancel"></i>
-        </label>
-        <div class="sidebar">
 
-            <header> facebook</header>
-            <ul>
-                <li>Country <nav>@ViewBag.country</nav> </li>
-                 
-                <li>City  <nav>@ViewBag.city</nav></li>
-                <li>Email <div class="mail">@ViewBag.email</div></li>
-                <li>Mobile<nav >@ViewBag.mobile</nav></li>
-            </ul>
-        </div>
-    
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+
+        <header> facebook</header>
+        <ul>
+            <li>Country <nav>@ViewBag.country</nav> </li>
+
+            <li>City  <nav>@ViewBag.city</nav></li>
+            <li>Email <div class="mail">@ViewBag.email</div></li>
+            <li>Mobile<nav>@ViewBag.mobile</nav></li>
+        </ul>
+    </div>
+
 
 
 
@@ -617,7 +617,26 @@ display:none;
                             <div class="profile-img">
                                 <img src=@ViewBag.imagePpath2 />
                             </div>
-                            <div> <textarea placeholder="what is in your mind?"></textarea></div>
+                            <div>
+
+                                <!---   <form method="post">
+
+                      <input placeholder="what is in your mind?" name="write" type="text" />
+
+                      <input type="submit" class="btn btn-primary" style="border-radius:20px;margin-left:290px;margin-top:-70px" value="send" />
+                  </form>
+                -->
+                                <form method="post">
+
+                                    @Html.TextAreaFor(c => c.post.writtenPost, new { id = "send", @class = "form-control" })
+                                    <!-- @Html.TextAreaFor(c => c.post.imgPath, new { @class = "form-control" })-->
+                                    <button id="sendBtn" type="submit" class="btn btn-primary" style="border-radius:20px;margin-left:290px;margin-top:-70px"> send</button>
+
+                                </form>
+
+
+                            </div>
+
                             <div></div>
                         </div>
 
@@ -632,68 +651,177 @@ display:none;
                         </div>
 
                     </div>
-
-                    <div class="box-designing">
-                        <div class="post-header">
-                            <div class="profile-img">
-                                <img src=@ViewBag.imagePpath2 />
-                            </div>
-                            <div class="post-name-info">
-                                <h2>Marihan Raafat</h2>
-                                <p>
-                                    <span> 19 April 2022</span>
-
-                                </p>
-                                <i class="fa-solid fa-ellipsis-vertical "></i>
-
-                            </div>
-
-
-
-                        </div>
-
-                        <div class="post-img-txt">
-                            <p>
-                                NASA space apps global nominee for global competition
-                            </p>
-                            <img src="\img\images\0.jpg" />
-                        </div>
-                        <div class="like-comment-site">
-
-                            <button>
-                                <i class="far fa-thumbs-up"></i>
-                                <span>Like</span>
-                            </button>
-                            <button>
-                                <i class="fas fa-comment-alt"></i>
-                                <span>Comments</span>
-                            </button>
-                            <button>
-                                <i class="fas fa-share"></i>
-                                <span>Share</span>
-                            </button>
-                        </div>
-                        <div class="comment-site">
-                            <div>
-                                <div class="profile-img minipi">
+                    @foreach (var c in ViewBag.writtenPost)
+                    {
+                        <div class="box-designing">
+                            <div class="post-header">
+                                <div class="profile-img">
                                     <img src=@ViewBag.imagePpath2 />
                                 </div>
+
+                                <div class="post-name-info">
+                                    <h2>Marihan Raafat</h2>
+                                    <i class="fa-solid fa-ellipsis-vertical "></i>
+                                </div>
                             </div>
-                            <div class="comment-div">
-                                <textarea placeholder="write a comment..."></textarea>
-                                <ul>
-                                    <li><i class="fas fa-camera"></i></li>
-                                    <li><i class="far fa-smile-beam"></i></li>
-                                </ul>
+
+
+                            <div class="writtenPost">@c</div>
+
+
+
+                            <div class="like-comment-site">
+
+                                <button>
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>Like</span>
+                                </button>
+                                <button>
+                                    <i class="fas fa-comment-alt"></i>
+                                    <span>Comments</span>
+                                </button>
+                                <button>
+                                    <i class="fas fa-share"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+
+                            <div class="comment-site">
+                                <div>
+                                    <div class="profile-img minipi">
+                                        <img src=@ViewBag.imagePpath2 />
+                                    </div>
+                                </div>
+                                <div class="comment-div">
+                                    <textarea placeholder="write a comment..."></textarea>
+                                    <ul>
+                                        <li><i class="fas fa-camera"></i></li>
+                                        <li><i class="far fa-smile-beam"></i></li>
+                                    </ul>
+                                </div>
+
                             </div>
 
                         </div>
+                    }
+
+                    <!-- <div class="writtenPost">@ViewBag.LastWrittenPost</div>-->
+
+                        <div class="box-designing">
+
+                            <div class="post-header">
+                                <div class="profile-img">
+                                    <img src=@ViewBag.imagePpath2 />
+                                </div>
+
+                                <div class="post-name-info">
+                                    <h2>Marihan Raafat</h2>
+                                    <i class="fa-solid fa-ellipsis-vertical "></i>
+                                </div>
+                            </div>
+
+
+                            <div class="writtenPost">@ViewBag.LastWrittenPost</div>
+
+                            <div class="like-comment-site">
+
+                                <button>
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>Like</span>
+                                </button>
+                                <button>
+                                    <i class="fas fa-comment-alt"></i>
+                                    <span>Comments</span>
+                                </button>
+                                <button>
+                                    <i class="fas fa-share"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+
+                            <div class="comment-site">
+                                <div>
+                                    <div class="profile-img minipi">
+                                        <img src=@ViewBag.imagePpath2 />
+                                    </div>
+                                </div>
+                                <div class="comment-div">
+                                    <textarea placeholder="write a comment..."></textarea>
+                                    <ul>
+                                        <li><i class="fas fa-camera"></i></li>
+                                        <li><i class="far fa-smile-beam"></i></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                        <div class="box-designing">
+
+
+                            <div class="post-header">
+                                <div class="profile-img">
+                                    <img src=@ViewBag.imagePpath2 />
+                                </div>
+
+                                <div class="post-name-info">
+                                    <h2>Marihan Raafat</h2>
+                                    <p>
+                                        <span> 19 April 2022</span>
+
+                                    </p>
+                                    <i class="fa-solid fa-ellipsis-vertical "></i>
+                                </div>
+                            </div>
+
+                            <div class="post-img-txt">
+                                <p>
+                                    NASA space apps global nominee for global competition
+                                </p>
+                                <img src="\img\images\0.jpg" />
+                            </div>
+                            <div class="like-comment-site">
+
+                                <button>
+                                    <i class="far fa-thumbs-up"></i>
+                                    <span>Like</span>
+                                </button>
+                                <button>
+                                    <i class="fas fa-comment-alt"></i>
+                                    <span>Comments</span>
+                                </button>
+                                <button>
+                                    <i class="fas fa-share"></i>
+                                    <span>Share</span>
+                                </button>
+                            </div>
+                            <div class="comment-site">
+                                <div>
+                                    <div class="profile-img minipi">
+                                        <img src=@ViewBag.imagePpath2 />
+                                    </div>
+                                </div>
+                                <div class="comment-div">
+                                    <textarea placeholder="write a comment..."></textarea>
+                                    <ul>
+                                        <li><i class="fas fa-camera"></i></li>
+                                        <li><i class="far fa-smile-beam"></i></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
                     </div>
-
-
-
-                </div>
-            </section>
+</section>
 
         </section>
 
@@ -730,9 +858,15 @@ display:none;
             });
 
 
+
+
         })
 
-
+        function myFunction() {
+            var x = document.getElementById("send").value;
+            document.getElementById("post").innerHTML = x;
+            
+        }
 
 
     </script>

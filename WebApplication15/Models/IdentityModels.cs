@@ -21,6 +21,7 @@ namespace WebApplication15.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<friends> friend { get; set; }
+        public DbSet<posts> post { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -17,6 +17,7 @@ namespace WebApplication15.Models
         public string email { get; set; }
         public string imagePpath2 { get; set; }
         public int mobile { get; set; }
-        
+        public posts post { get; set; }
+
     }
 }

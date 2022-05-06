@@ -214,13 +214,55 @@
     <Compile Include="Migrations\202204262217395_f8.Designer.cs">
       <DependentUpon>202204262217395_f8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205022240520_f9.cs" />
+    <Compile Include="Migrations\202205022240520_f9.Designer.cs">
+      <DependentUpon>202205022240520_f9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205022322429_f10.cs" />
+    <Compile Include="Migrations\202205022322429_f10.Designer.cs">
+      <DependentUpon>202205022322429_f10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205030113091_f11.cs" />
+    <Compile Include="Migrations\202205030113091_f11.Designer.cs">
+      <DependentUpon>202205030113091_f11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205032058535_f12.cs" />
+    <Compile Include="Migrations\202205032058535_f12.Designer.cs">
+      <DependentUpon>202205032058535_f12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205042349295_f13.cs" />
+    <Compile Include="Migrations\202205042349295_f13.Designer.cs">
+      <DependentUpon>202205042349295_f13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205042352252_f14.cs" />
+    <Compile Include="Migrations\202205042352252_f14.Designer.cs">
+      <DependentUpon>202205042352252_f14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205042354080_f15.cs" />
+    <Compile Include="Migrations\202205042354080_f15.Designer.cs">
+      <DependentUpon>202205042354080_f15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205042356043_f16.cs" />
+    <Compile Include="Migrations\202205042356043_f16.Designer.cs">
+      <DependentUpon>202205042356043_f16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205042359268_f17.cs" />
+    <Compile Include="Migrations\202205042359268_f17.Designer.cs">
+      <DependentUpon>202205042359268_f17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205050006197_f18.cs" />
+    <Compile Include="Migrations\202205050006197_f18.Designer.cs">
+      <DependentUpon>202205050006197_f18.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\friends.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\posts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\posts_friendsViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -329,6 +371,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204262217395_f8.resx">
       <DependentUpon>202204262217395_f8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205022240520_f9.resx">
+      <DependentUpon>202205022240520_f9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205022322429_f10.resx">
+      <DependentUpon>202205022322429_f10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205030113091_f11.resx">
+      <DependentUpon>202205030113091_f11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205032058535_f12.resx">
+      <DependentUpon>202205032058535_f12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205042349295_f13.resx">
+      <DependentUpon>202205042349295_f13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205042352252_f14.resx">
+      <DependentUpon>202205042352252_f14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205042354080_f15.resx">
+      <DependentUpon>202205042354080_f15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205042356043_f16.resx">
+      <DependentUpon>202205042356043_f16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205042359268_f17.resx">
+      <DependentUpon>202205042359268_f17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205050006197_f18.resx">
+      <DependentUpon>202205050006197_f18.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

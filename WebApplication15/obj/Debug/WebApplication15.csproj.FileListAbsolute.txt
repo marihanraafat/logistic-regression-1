@@ -114,3 +114,13 @@ C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebAppli
 C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f6.resources
 C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f7.resources
 C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f8.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f9.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f10.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f11.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f12.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f13.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f14.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f15.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f16.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f17.resources
+C:\Users\ayman\source\repos\WebApplication15\WebApplication15\obj\Debug\WebApplication15.Migrations.f18.resources
